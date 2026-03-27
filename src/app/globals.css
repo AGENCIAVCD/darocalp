@@ -1,26 +1,129 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f7f0e4;
+  --foreground: #2c2018;
+  --muted: #6d5a4a;
+  --border: rgba(107, 79, 53, 0.14);
+  --card: rgba(255, 250, 244, 0.84);
+  --card-strong: #fffaf4;
+  --primary: #8f4f2d;
+  --primary-strong: #6e381d;
+  --secondary: #44543d;
+  --accent: #d39b4a;
+  --ring: rgba(211, 155, 74, 0.34);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-card: var(--card);
+  --color-card-strong: var(--card-strong);
+  --color-primary: var(--primary);
+  --color-primary-strong: var(--primary-strong);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
+  --color-ring: var(--ring);
+  --font-sans: var(--font-sans);
+  --font-serif: var(--font-serif);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
+  margin: 0;
+  min-height: 100vh;
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), sans-serif;
+  background:
+    radial-gradient(circle at top, rgba(211, 155, 74, 0.16), transparent 32%),
+    linear-gradient(180deg, #fbf6ef 0%, #f7f0e4 40%, #f2e8d8 100%);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::selection {
+  background: rgba(211, 155, 74, 0.28);
+}
+
+.font-serif {
+  font-family: var(--font-serif), serif;
+}
+
+.section-shell {
+  @apply mx-auto w-full max-w-[1200px] px-5 sm:px-6 lg:px-8;
+}
+
+.section-padding {
+  padding-block: clamp(3.75rem, 7vw, 6rem);
+}
+
+.section-card {
+  padding-block: 20px;
+  display: flow-root;
+}
+
+.eyebrow {
+  @apply inline-flex items-center gap-2 rounded-full border border-border bg-white/65 px-4 py-2 text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-secondary backdrop-blur-sm;
+}
+
+.glass-card {
+  @apply rounded-[1.75rem] border border-border bg-card shadow-[0_20px_60px_rgba(64,38,17,0.08)] backdrop-blur;
+}
+
+.section-title {
+  font-family: var(--font-serif), serif;
+  font-size: clamp(2.6rem, 4vw, 4.8rem);
+  line-height: 0.96;
+  letter-spacing: -0.04em;
+  color: var(--foreground);
+  text-wrap: balance;
+}
+
+.section-copy {
+  font-size: clamp(1rem, 1.2vw, 1.12rem);
+  line-height: 1.8;
+  color: var(--muted);
+  text-wrap: pretty;
+}
+
+.ornament {
+  position: relative;
+}
+
+.ornament::before {
+  content: "";
+  position: absolute;
+  inset: auto auto -0.85rem 0;
+  width: 5.5rem;
+  height: 0.2rem;
+  border-radius: 9999px;
+  background: linear-gradient(90deg, var(--accent), rgba(211, 155, 74, 0));
+}
+
+.hero-overlay {
+  background:
+    linear-gradient(180deg, rgba(25, 15, 8, 0.16) 0%, rgba(25, 15, 8, 0.74) 78%),
+    linear-gradient(115deg, rgba(68, 84, 61, 0.3) 0%, rgba(143, 79, 45, 0.1) 60%, rgba(211, 155, 74, 0.16) 100%);
+}
+
+.soft-shadow {
+  box-shadow: 0 20px 60px rgba(41, 24, 12, 0.16);
+}
+
+.content-stack {
+  display: grid;
+  gap: 1.5rem;
+  align-content: start;
 }
