@@ -298,10 +298,12 @@ function HeroSection() {
         <div className="hidden pb-7 sm:block sm:pb-8">
           <a
             href="#sobre"
-            className="inline-flex items-center gap-3 rounded-full border border-white/18 bg-black/16 px-4 py-2 text-xs font-semibold uppercase tracking-[0.26em] text-white backdrop-blur-md transition hover:bg-black/26"
+            className="inline-flex items-center gap-3 rounded-full border border-white/24 bg-black/22 px-4 py-2 text-xs font-semibold uppercase tracking-[0.26em] !text-white backdrop-blur-md transition hover:bg-black/30"
           >
             <span className="h-px w-12 bg-white" />
-            Role para descobrir
+            <span className="!text-white [text-shadow:0_1px_10px_rgba(0,0,0,0.45)]">
+              Role para descobrir
+            </span>
           </a>
         </div>
       </div>
