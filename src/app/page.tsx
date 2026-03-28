@@ -401,14 +401,21 @@ function DishesSection() {
         </AnimatedSection>
 
         <div className="section-surface mt-8">
-          <div className="grid gap-8 lg:grid-cols-[minmax(0,0.38fr)_minmax(0,0.62fr)] lg:gap-10">
-            <AnimatedSection className="grid gap-5">
+          <div className="grid gap-6 lg:gap-8">
+            <AnimatedSection delay={0.08}>
+              <PlateCarousel images={galleryImages} />
+            </AnimatedSection>
+
+            <AnimatedSection className="grid gap-4 md:grid-cols-3">
               {dishStories.map((item) => (
-                <article key={item.title} className="border-t border-border pt-5 first:border-t-0 first:pt-0">
+                <article
+                  key={item.title}
+                  className="rounded-[1.55rem] border border-border bg-white/72 p-5 shadow-[0_14px_30px_rgba(64,38,17,0.05)]"
+                >
                   <div className="inline-flex rounded-full bg-primary/10 p-3 text-primary">
                     <CookingPot className="h-5 w-5" />
                   </div>
-                  <h3 className="mt-4 font-serif text-[1.9rem] leading-[1.02] tracking-[-0.03em] text-foreground">
+                  <h3 className="mt-4 font-serif text-[1.65rem] leading-[1.02] tracking-[-0.03em] text-foreground">
                     {item.title}
                   </h3>
                   <p className="mt-3 text-[0.98rem] leading-7 text-muted">
@@ -416,10 +423,6 @@ function DishesSection() {
                   </p>
                 </article>
               ))}
-            </AnimatedSection>
-
-            <AnimatedSection delay={0.08}>
-              <PlateCarousel images={galleryImages} />
             </AnimatedSection>
           </div>
         </div>
@@ -505,38 +508,51 @@ function KidsSection() {
             </p>
           </AnimatedSection>
 
-          <div className="grid gap-8 lg:grid-cols-[minmax(0,0.44fr)_minmax(0,0.56fr)] lg:items-stretch lg:gap-12">
-            <AnimatedSection className="flex h-full flex-col gap-5">
-              <div className="rounded-[1.6rem] border border-border bg-white/72 p-5">
-                <p className="text-sm leading-7 text-muted">
-                  Se a proposta é comer bem e permanecer mais tempo à mesa, esse
-                  pedaço da experiência faz diferença de verdade.
-                </p>
-              </div>
+          <div className="grid gap-6 lg:gap-8">
+            <div className="grid gap-4 lg:grid-cols-[minmax(0,0.42fr)_minmax(0,0.58fr)] lg:items-start">
+              <AnimatedSection className="grid gap-4">
+                <div className="rounded-[1.6rem] border border-border bg-white/72 p-5">
+                  <p className="text-sm leading-7 text-muted">
+                    Se a proposta é comer bem e permanecer mais tempo à mesa, esse
+                    pedaço da experiência faz diferença de verdade.
+                  </p>
+                </div>
 
-              <div className="rounded-[1.6rem] border border-border bg-white/64 p-5 shadow-[0_16px_34px_rgba(64,38,17,0.04)]">
-                <p className="text-xs font-semibold uppercase tracking-[0.24em] text-secondary">
-                  Por que funciona
-                </p>
-                <div className="mt-4 grid gap-3">
-                  <div className="flex items-start gap-3">
-                    <span className="mt-2 h-2.5 w-2.5 rounded-full bg-primary/70" />
-                    <p className="text-sm leading-7 text-muted">
-                      As crianças têm um espaço próprio enquanto a mesa segue
-                      tranquila para adultos, famílias e grupos.
-                    </p>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <span className="mt-2 h-2.5 w-2.5 rounded-full bg-secondary/80" />
-                    <p className="text-sm leading-7 text-muted">
-                      A experiência fica mais leve, mais confortável e mais
-                      compatível com almoços longos de domingo.
-                    </p>
+                <div className="rounded-[1.6rem] border border-border bg-white/64 p-5 shadow-[0_16px_34px_rgba(64,38,17,0.04)]">
+                  <p className="text-xs font-semibold uppercase tracking-[0.24em] text-secondary">
+                    Por que funciona
+                  </p>
+                  <div className="mt-4 grid gap-3">
+                    <div className="flex items-start gap-3">
+                      <span className="mt-2 h-2.5 w-2.5 rounded-full bg-primary/70" />
+                      <p className="text-sm leading-7 text-muted">
+                        As crianças têm um espaço próprio enquanto a mesa segue
+                        tranquila para adultos, famílias e grupos.
+                      </p>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <span className="mt-2 h-2.5 w-2.5 rounded-full bg-secondary/80" />
+                      <p className="text-sm leading-7 text-muted">
+                        A experiência fica mais leve, mais confortável e mais
+                        compatível com almoços longos de domingo.
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </AnimatedSection>
 
-              <div className="mt-auto pt-2">
+              <AnimatedSection className="flex h-full flex-col justify-between gap-4">
+                <div className="rounded-[1.6rem] border border-border bg-white/68 p-5 shadow-[0_14px_28px_rgba(64,38,17,0.04)]">
+                  <p className="text-xs font-semibold uppercase tracking-[0.24em] text-secondary">
+                    Para ver de perto
+                  </p>
+                  <p className="text-sm leading-7 text-muted">
+                    O vídeo mostra o clima real da casa: famílias à vontade,
+                    ambiente acolhedor e uma experiência mais leve para quem
+                    quer ficar mais tempo.
+                  </p>
+                </div>
+
                 <a
                   href="https://www.instagram.com/reel/DWJij3IBF5U/"
                   target="_blank"
@@ -547,8 +563,8 @@ function KidsSection() {
                   Ver vídeo do espaço kids
                   <ArrowUpRight className="h-4 w-4" />
                 </a>
-              </div>
-            </AnimatedSection>
+              </AnimatedSection>
+            </div>
 
             <AnimatedSection delay={0.08}>
               <div className="embed-frame">
@@ -678,10 +694,10 @@ function ReservationsSection() {
     <section id="reservas" className="section">
       <div className="section-shell">
         <div className="rounded-[2.15rem] border border-[rgba(107,79,53,0.18)] bg-[linear-gradient(135deg,rgba(143,79,45,0.16),rgba(68,84,61,0.08),rgba(255,250,244,0.72))] p-6 shadow-[0_24px_70px_rgba(64,38,17,0.08)] sm:p-8 lg:p-10">
-          <div className="grid gap-10 lg:grid-cols-[minmax(0,0.58fr)_minmax(0,0.42fr)] lg:items-start lg:gap-12">
+          <div className="grid gap-8 lg:grid-cols-[minmax(0,0.56fr)_minmax(0,0.44fr)] lg:items-start lg:gap-10">
             <AnimatedSection className="section-stack">
               <span className="eyebrow">Reservas & eventos</span>
-              <h2 className="section-title lg:text-[clamp(3rem,5vw,4.8rem)]">
+              <h2 className="section-title lg:text-[clamp(2.5rem,4vw,4rem)]">
                 Para grupos, comemorações e encontros que pedem uma mesa
                 especial.
               </h2>
@@ -690,21 +706,10 @@ function ReservationsSection() {
                 A casa também recebe eventos, confraternizações e locação do
                 espaço com atendimento alinhado à experiência da Da Roça.
               </p>
-
-              <div className="rounded-[1.6rem] border border-border bg-white/68 p-5 shadow-[0_16px_34px_rgba(64,38,17,0.05)]">
-                <p className="text-xs font-semibold uppercase tracking-[0.24em] text-secondary">
-                  Atendimento da casa
-                </p>
-                <p className="mt-3 text-[0.98rem] leading-7 text-muted">
-                  Ideal para aniversários, almoços em família, confraternizações
-                  e encontros que pedem uma experiência acolhedora do começo ao
-                  fim.
-                </p>
-              </div>
             </AnimatedSection>
 
-            <AnimatedSection delay={0.08} className="grid gap-4 lg:pt-10">
-              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
+            <AnimatedSection delay={0.08} className="grid gap-4 lg:pt-2">
+              <div className="grid gap-4 sm:grid-cols-2">
                 <article className="detail-card">
                   <div className="inline-flex rounded-full bg-primary/10 p-3 text-primary">
                     <Users className="h-5 w-5" />
@@ -765,6 +770,17 @@ function ReservationsSection() {
                     <span className="text-foreground">Solicitar Evento</span>
                   </span>
                 </a>
+              </div>
+
+              <div className="rounded-[1.6rem] border border-border bg-white/68 p-5 shadow-[0_16px_34px_rgba(64,38,17,0.05)]">
+                <p className="text-xs font-semibold uppercase tracking-[0.24em] text-secondary">
+                  Atendimento da casa
+                </p>
+                <p className="mt-3 text-[0.98rem] leading-7 text-muted">
+                  Ideal para aniversários, almoços em família, confraternizações
+                  e encontros que pedem uma experiência acolhedora do começo ao
+                  fim.
+                </p>
               </div>
             </AnimatedSection>
           </div>
