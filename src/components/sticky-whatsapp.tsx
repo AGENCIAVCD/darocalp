@@ -16,11 +16,11 @@ export function StickyWhatsApp({ href }: StickyWhatsAppProps) {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 1 }}
-      className="fixed bottom-5 left-5 z-50 inline-flex items-center gap-3 rounded-full bg-[#1f6b43] px-5 py-3.5 text-sm font-semibold text-white shadow-[0_18px_50px_rgba(18,74,46,0.35)] ring-1 ring-white/18 transition-transform hover:-translate-y-1"
+      className="fixed bottom-4 left-4 z-50 inline-flex h-11 w-11 items-center justify-center rounded-full bg-[#1f6b43] text-xs font-semibold text-white shadow-[0_18px_50px_rgba(18,74,46,0.35)] ring-1 ring-white/18 transition-transform hover:-translate-y-1 sm:bottom-5 sm:left-5 sm:h-auto sm:w-auto sm:gap-3 sm:px-5 sm:py-3.5 sm:text-sm"
       aria-label="Falar no WhatsApp"
     >
-      <RiWhatsappFill className="h-5 w-5 text-white" />
-      <span className="text-white">Falar no WhatsApp</span>
+      <RiWhatsappFill className="h-4 w-4 text-white sm:h-5 sm:w-5" />
+      <span className="hidden text-white sm:inline">Falar no WhatsApp</span>
     </motion.a>
   );
 }

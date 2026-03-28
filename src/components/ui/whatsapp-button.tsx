@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 type WhatsAppButtonProps = {
   href: string;
   children: React.ReactNode;
-  variant?: "primary" | "secondary" | "ghost";
+  variant?: "primary" | "secondary" | "ghost" | "olive";
   className?: string;
 };
 
@@ -16,12 +16,11 @@ export function WhatsAppButton({
   className,
 }: WhatsAppButtonProps) {
   const styles = {
-    primary:
-      "bg-primary !text-white shadow-[0_18px_40px_rgba(111,56,29,0.28)] hover:bg-primary-strong",
+    primary: "fancy-button fancy-button--warm !text-white",
     secondary:
       "border border-white/40 bg-white/12 !text-white backdrop-blur hover:bg-white/20",
-    ghost:
-      "border border-border bg-white/70 text-foreground hover:bg-white",
+    ghost: "fancy-button fancy-button--light text-foreground",
+    olive: "fancy-button fancy-button--olive !text-white",
   };
 
   const contentColor =
@@ -33,15 +32,15 @@ export function WhatsAppButton({
       target="_blank"
       rel="noreferrer"
       className={cn(
-        "inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold tracking-[0.04em] transition-all duration-300 hover:-translate-y-0.5",
+        "inline-flex items-center justify-center gap-2 rounded-full text-sm font-semibold tracking-[0.01em] transition-all duration-300",
         styles[variant],
         className,
       )}
     >
-      <RiWhatsappFill
-        className={cn("h-4 w-4", contentColor)}
-      />
-      <span className={contentColor}>{children}</span>
+      <span className="fancy-button__content">
+        <RiWhatsappFill className={cn("h-4 w-4", contentColor)} />
+        <span className={contentColor}>{children}</span>
+      </span>
     </a>
   );
 }

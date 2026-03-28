@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Script from "next/script";
 import {
@@ -24,11 +25,17 @@ import { PlateCarousel } from "@/components/plate-carousel";
 import { StickyWhatsApp } from "@/components/sticky-whatsapp";
 import { WhatsAppButton } from "@/components/ui/whatsapp-button";
 
+export const metadata: Metadata = {
+  title: "Da Roça Gastronomia | Sabor da roça, feito com amor e tradição",
+  description:
+    "Gastronomia brasileira de raiz em Jundiaí, com comida caseira, ambiente acolhedor, pratos da casa, espaço kids, reservas para grupos e eventos.",
+};
+
 const restaurant = {
   name: "Da Roça Gastronomia",
-  slogan: "Sabor da roça, feito com amor e tradição",
+  subtitle: "Sabor da roça, feito com amor e tradição",
   description:
-    "Uma gastronomia brasileira de raiz, com comida caseira feita com carinho, ingredientes selecionados e aquele acolhimento que faz cada almoço parecer domingo em família.",
+    "Uma gastronomia brasileira de raiz, com comida caseira feita com carinho, ingredientes selecionados e o tipo de acolhimento que faz cada almoço parecer domingo em família.",
   address: "R. Ignez Thomasi Bardi, 97 - Caxambu, Jundiaí - SP",
   mapsUrl:
     "https://www.google.com/maps?daddr=R.+Ignez+Thomasi+Bardi,+97+-+Caxambu,+Jundia%C3%AD+-+SP,+13216-702",
@@ -37,17 +44,15 @@ const restaurant = {
     "https://www.facebook.com/people/Da-Ro%C3%A7a-Gastronomia/100092472042770/",
   menuUrl: "https://darocagastronomia.com.br/cardapio/",
   logoUrl: "/images/logo-daroca.jpg",
-  heroImage:
-    "https://darocagastronomia.com.br/wp-content/uploads/2025/02/Da-Roca_Jul2024_23-scaled.jpg",
   heroImages: [
     "https://darocagastronomia.com.br/wp-content/uploads/2025/02/Da-Roca_Jul2024_23-scaled.jpg",
     "https://darocagastronomia.com.br/wp-content/uploads/2025/02/Z5A7474-scaled.jpg",
     "https://darocagastronomia.com.br/wp-content/uploads/2025/02/Da-Roca_Jul2024_18-scaled.jpg",
     "https://darocagastronomia.com.br/wp-content/uploads/2025/02/Z5A7413-scaled.jpg",
   ],
-  aboutImage:
+  storyImage:
     "https://darocagastronomia.com.br/wp-content/uploads/2025/02/Z5A7440-scaled.jpg",
-  experienceImage:
+  atmosphereImage:
     "https://darocagastronomia.com.br/wp-content/uploads/2025/02/Z5A7419-scaled.jpg",
   locationImage:
     "https://darocagastronomia.com.br/wp-content/uploads/2025/02/Z5A7390-scaled.jpg",
@@ -59,38 +64,21 @@ const whatsappBase =
 const whatsappLink = (text: string) =>
   `${whatsappBase}&text=${encodeURIComponent(text)}`;
 
-const menuItems = [
+const dishStories = [
   {
-    name: "Feijoada Da Roça",
+    title: "Feijoada da casa",
     description:
-      "Clássico brasileiro servido com acompanhamentos caprichados, sabor intenso e apresentação acolhedora.",
-    price: "Consulte no cardápio",
-    image:
-      "https://darocagastronomia.com.br/wp-content/uploads/2025/02/Da-Roca_Jul2024_15-scaled.jpg",
+      "Receitas brasileiras afetivas servidas com fartura, técnica e aquele calor de comida feita para reunir.",
   },
   {
-    name: "Cortes e grelhados especiais",
+    title: "Grelhados especiais",
     description:
-      "Carnes suculentas com finalização cuidadosa, ideais para um almoço de fazenda com toque gourmet.",
-    price: "Consulte no cardápio",
-    image:
-      "https://darocagastronomia.com.br/wp-content/uploads/2025/02/Z5A7387-scaled.jpg",
+      "Carnes suculentas, acompanhamentos caprichados e apresentação que valoriza o sabor da roça.",
   },
   {
-    name: "Mesa farta de sabores",
+    title: "Mesa para compartilhar",
     description:
-      "Pratos generosos, cores vibrantes e combinações que celebram a cozinha brasileira afetiva.",
-    price: "Consulte no cardápio",
-    image:
-      "https://darocagastronomia.com.br/wp-content/uploads/2025/02/Z5A7474-scaled.jpg",
-  },
-  {
-    name: "Sobremesas e detalhes da casa",
-    description:
-      "Finalizações delicadas para prolongar a experiência com aconchego e memória afetiva.",
-    price: "Consulte no cardápio",
-    image:
-      "https://darocagastronomia.com.br/wp-content/uploads/2025/02/Da-Roca_Jul2024_56-scaled.jpg",
+      "Combinações generosas para famílias, grupos e almoços que pedem tempo, conversa e segunda rodada de memórias.",
   },
 ];
 
@@ -98,76 +86,101 @@ const galleryImages = [
   {
     src: "/images/gallery/prato-1.png",
     alt: "Prato com massa, filé grelhado, batatas fritas, salada e suco",
+    title: "Filé com massa fresca",
   },
   {
     src: "/images/gallery/prato-2.png",
     alt: "Prato brasileiro com arroz, ovo, linguiça, feijão e carne grelhada",
+    title: "Brasilidade no prato",
   },
   {
     src: "/images/gallery/prato-3.png",
     alt: "Prato com arroz, batatas fritas e acompanhamentos da Da Roça",
+    title: "Clássico da casa",
   },
   {
     src: "/images/gallery/prato-4.png",
     alt: "Massa com carne grelhada, salada e bebida servida na Da Roça",
+    title: "Grelhado com fettuccine",
   },
   {
     src: "/images/gallery/prato-5.png",
     alt: "Prato com arroz, frango crocante e batatas fritas",
+    title: "Frango crocante da roça",
   },
   {
     src: "/images/gallery/prato-6.png",
     alt: "Prato com arroz, carne grelhada e batatas fritas",
+    title: "Corte grelhado especial",
   },
   {
     src: "/images/gallery/prato-7.png",
     alt: "Prato com arroz, filé de frango grelhado e suco natural",
+    title: "Frango grelhado com suco",
   },
   {
     src: "/images/gallery/prato-8.png",
     alt: "Prato com arroz, porções crocantes, batatas fritas e feijão",
+    title: "Porção dourada da casa",
   },
 ];
 
-const experienceItems = [
+const experiencePoints = [
   {
     icon: Sparkles,
-    title: "Ambiente",
-    text: "Um espaço charmoso e acolhedor, com clima de fazenda chique para viver bons encontros sem pressa.",
+    title: "Atmosfera acolhedora",
+    text: "Ambiente charmoso, confortável e com ritmo de almoço para ficar mais do que o planejado.",
   },
   {
     icon: Leaf,
-    title: "Ingredientes frescos",
-    text: "Seleção cuidadosa de insumos para valorizar a comida brasileira com qualidade, cor e sabor.",
+    title: "Ingredientes selecionados",
+    text: "Cozinha brasileira feita com insumos bem escolhidos, frescor e apresentação cuidadosa.",
   },
   {
     icon: HeartHandshake,
-    title: "Feito com amor",
-    text: "Receitas que respeitam a tradição da roça, servidas com afeto e atenção em cada detalhe.",
+    title: "Afeto no serviço",
+    text: "Uma casa que recebe famílias e grupos com atenção verdadeira, sem parecer apressada ou impessoal.",
   },
   {
     icon: Users,
-    title: "Famílias e grupos",
-    text: "Perfeito para almoços de domingo, comemorações especiais e encontros de quem gosta de mesa cheia.",
+    title: "Experiência para reunir",
+    text: "Ideal para domingos, feriados, comemorações em família e encontros em volta da mesa.",
   },
 ];
 
-const hours = [
-  ["Segunda a Quinta", "Fechado"],
-  ["Sexta, Sábado, Domingo e Feriados", "11:30h às 16:00h"],
+const visitingInfo = [
+  {
+    title: "Horários",
+    icon: Clock3,
+    lines: [
+      "Segunda a Quinta: Fechado",
+      "Sexta, Sábado, Domingo e Feriados: 11:30h às 16:00h",
+    ],
+  },
+  {
+    title: "Endereço",
+    icon: MapPinned,
+    lines: [restaurant.address, "Caxambu, Jundiaí - SP"],
+  },
+  {
+    title: "Reservas & eventos",
+    icon: PartyPopper,
+    lines: [
+      "Reservas para grupos acima de 8 pessoas via WhatsApp.",
+      "Eventos, confraternizações e locação do espaço sob consulta.",
+    ],
+  },
 ];
 
 export default function Home() {
   return (
     <main className="relative overflow-hidden">
       <HeroSection />
-      <AboutSection />
-      <MenuHighlightsSection />
-      <GallerySection />
+      <StorySection />
+      <DishesSection />
       <ExperienceSection />
       <KidsSection />
-      <HoursSection />
-      <LocationSection />
+      <VisitSection />
       <ReservationsSection />
       <Footer />
       <StickyWhatsApp
@@ -179,66 +192,73 @@ export default function Home() {
 
 function HeroSection() {
   return (
-    <section className="relative isolate min-h-screen overflow-hidden">
+    <section className="relative isolate min-h-[100svh] overflow-hidden">
       <HeroBackground images={restaurant.heroImages} />
       <div className="hero-overlay absolute inset-0" />
-      <div className="section-shell relative flex min-h-screen flex-col">
-        <header className="flex items-center justify-between py-5 text-white">
-          <div className="flex items-center gap-3 rounded-full border border-white/20 bg-white/8 px-3 py-2 backdrop-blur-sm">
-            <div className="relative h-11 w-11 overflow-hidden rounded-full border border-white/20 bg-white/10">
+
+      <div className="section-shell relative flex min-h-[100svh] flex-col justify-between">
+        <header className="flex items-center justify-between py-5 text-white sm:py-6">
+          <div className="inline-flex items-center gap-3 rounded-full border border-white/15 bg-white/10 px-3 py-2 backdrop-blur-md">
+            <div className="relative h-11 w-11 overflow-hidden rounded-full border border-white/18">
               <Image
                 src={restaurant.logoUrl}
                 alt="Logo da Da Roça Gastronomia"
                 fill
+                sizes="44px"
                 className="object-cover"
               />
             </div>
             <div>
-              <p className="font-serif text-lg">Da Roça</p>
-              <p className="text-xs uppercase tracking-[0.24em] text-white/72">
+              <p className="font-serif text-lg leading-none text-white">Da Roça</p>
+              <p className="mt-1 text-[0.64rem] uppercase tracking-[0.26em] text-white/72">
                 Gastronomia Brasil
               </p>
             </div>
           </div>
+
           <div className="hidden items-center gap-3 sm:flex">
             <a
               href={restaurant.instagram}
               target="_blank"
               rel="noreferrer"
               aria-label="Instagram da Da Roça Gastronomia"
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white backdrop-blur-sm transition hover:bg-white/16"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/18 bg-white/10 text-white backdrop-blur-md transition hover:bg-white/16"
             >
               <RiInstagramFill className="h-5 w-5" />
             </a>
-            <a
-              href={restaurant.instagram}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-medium text-white backdrop-blur-sm transition hover:bg-white/16"
+            <WhatsAppButton
+              href={whatsappLink(
+                "Olá, gostaria de fazer uma reserva na Da Roça Gastronomia.",
+              )}
+              variant="secondary"
             >
-              <RiInstagramFill className="h-4 w-4" />
-              Siga no Instagram
-            </a>
+              Faça sua reserva
+            </WhatsAppButton>
           </div>
         </header>
 
-        <div className="flex flex-1 items-center py-20 lg:py-28">
-          <AnimatedSection className="max-w-5xl text-white">
+        <AnimatedSection className="py-12 sm:py-14 lg:py-20">
+          <div className="max-w-[52rem]">
             <span className="eyebrow border-white/20 bg-white/10 text-white">
               Gastronomia brasileira de raiz
             </span>
-            <h1 className="mt-7 max-w-4xl font-serif text-5xl leading-[0.92] tracking-[-0.05em] sm:text-6xl lg:text-7xl xl:text-[5.8rem]">
-              {restaurant.name}
+
+            <h1 className="mt-6 font-serif text-[clamp(3.35rem,14vw,7rem)] leading-[0.88] tracking-[-0.06em] text-white">
+              <span className="block">Da Roça</span>
+              <span className="block">Gastronomia</span>
             </h1>
-            <p className="mt-6 max-w-2xl text-base leading-8 text-white/82 sm:text-lg lg:text-xl">
-              {restaurant.slogan}. Um almoço com afeto, ingredientes de
-              qualidade e aquela atmosfera quente que convida a ficar mais um
-              pouco.
+
+            <p className="mt-6 max-w-[34rem] text-[1rem] leading-8 text-white/84 sm:text-[1.08rem]">
+              {restaurant.subtitle}. Um restaurante com comida caseira feita com
+              carinho, clima de fazenda chique e pratos que convidam a sentar sem
+              pressa.
             </p>
-            <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <WhatsAppButton
-                href={whatsappLink("Olá, gostaria de ver o cardápio da Da Roça.")}
-                className="sm:min-w-52"
+                href={whatsappLink(
+                  "Olá, gostaria de ver o cardápio da Da Roça.",
+                )}
               >
                 Ver Cardápio
               </WhatsAppButton>
@@ -247,52 +267,40 @@ function HeroSection() {
                   "Olá, gostaria de fazer uma reserva para um grupo acima de 8 pessoas.",
                 )}
                 variant="secondary"
-                className="sm:min-w-52"
               >
                 Fazer Reserva
               </WhatsAppButton>
             </div>
-            <div className="mt-6 flex flex-wrap gap-3 text-sm">
+
+            <div className="mt-5 flex flex-wrap items-center gap-3 text-sm text-white/86">
               <a
                 href={restaurant.instagram}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-white/18 bg-white/10 px-4 py-2 text-white backdrop-blur-sm transition hover:bg-white/16"
+                className="inline-flex items-center gap-2 rounded-full border border-white/16 bg-white/8 px-4 py-2 backdrop-blur-sm transition hover:bg-white/14"
               >
                 <RiInstagramFill className="h-4 w-4" />
-                Instagram
-              </a>
-              <a
-                href={whatsappLink(
-                  "Olá, gostaria de fazer uma reserva na Da Roça Gastronomia.",
-                )}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-white/18 bg-white/10 px-4 py-2 text-white backdrop-blur-sm transition hover:bg-white/16"
-              >
-                <RiWhatsappFill className="h-4 w-4" />
-                Reserva rápida
+                Siga no Instagram
               </a>
               <a
                 href={restaurant.mapsUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-white/18 bg-white/10 px-4 py-2 text-white backdrop-blur-sm transition hover:bg-white/16"
+                className="inline-flex items-center gap-2 rounded-full border border-white/16 bg-white/8 px-4 py-2 backdrop-blur-sm transition hover:bg-white/14"
               >
                 <RiMapPin2Fill className="h-4 w-4" />
-                Como chegar
+                Jundiaí · SP
               </a>
             </div>
-          </AnimatedSection>
-        </div>
+          </div>
+        </AnimatedSection>
 
-        <div className="pb-8">
+        <div className="hidden pb-7 sm:block sm:pb-8">
           <a
             href="#sobre"
-            className="inline-flex items-center gap-3 rounded-full border border-white/18 bg-black/20 px-4 py-2 text-sm font-medium uppercase tracking-[0.26em] !text-white shadow-[0_10px_30px_rgba(0,0,0,0.2)] backdrop-blur-sm transition hover:bg-black/30"
-            style={{ color: "#ffffff", textShadow: "0 1px 10px rgba(0,0,0,0.35)" }}
+            className="inline-flex items-center gap-3 rounded-full border border-white/18 bg-black/16 px-4 py-2 text-xs font-semibold uppercase tracking-[0.26em] text-white backdrop-blur-md transition hover:bg-black/26"
           >
-            <span className="h-px w-16 bg-white" />
+            <span className="h-px w-12 bg-white" />
             Role para descobrir
           </a>
         </div>
@@ -301,109 +309,119 @@ function HeroSection() {
   );
 }
 
-function AboutSection() {
+function StorySection() {
   return (
-    <section id="sobre" className="section-padding">
-      <div className="section-shell section-card grid items-start gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-12">
-        <AnimatedSection className="relative">
-          <div className="glass-card p-3">
-            <div className="relative min-h-[360px] overflow-hidden rounded-[1.5rem] lg:min-h-[620px]">
-              <Image
-                src={restaurant.aboutImage}
-                alt="Ambiente interno acolhedor da Da Roça Gastronomia"
-                fill
-                className="object-cover"
-              />
-            </div>
-          </div>
+    <section id="sobre" className="section">
+      <div className="section-shell">
+        <AnimatedSection className="section-stack mb-8 lg:mb-10">
+          <span className="eyebrow">Sobre nós</span>
+          <h2 className="section-title">
+            Comida brasileira servida com cuidado, tempo e memória.
+          </h2>
+          <p className="section-copy">
+            {restaurant.description}
+          </p>
         </AnimatedSection>
 
-        <AnimatedSection delay={0.1} className="grid h-full content-between gap-8">
-          <div className="content-stack">
-            <span className="eyebrow">Sobre nós</span>
-            <h2 className="section-title ornament max-w-[11ch]">
-              Comida brasileira de raiz servida com cuidado, tempo e memória.
-            </h2>
-            <p className="section-copy max-w-[56ch]">{restaurant.description}</p>
-            <p className="section-copy max-w-[56ch]">
-              Na Da Roça, a experiência vai além do prato. O ambiente familiar,
-              o carinho no atendimento e a apresentação impecável criam uma
-              pausa gostosa para celebrar a brasilidade com elegância e
-              simplicidade.
+        <div className="grid gap-10 lg:grid-cols-[minmax(0,1.02fr)_minmax(0,0.98fr)] lg:items-start lg:gap-14">
+          <AnimatedSection>
+            <div className="media-frame">
+              <div className="media-image media-image--tall">
+                <Image
+                  src={restaurant.storyImage}
+                  alt="Ambiente interno acolhedor da Da Roça Gastronomia"
+                  fill
+                  sizes="(max-width: 1023px) calc(100vw - 40px), 50vw"
+                  className="object-cover"
+                />
+                <div className="absolute bottom-4 left-4 rounded-full border border-white/18 bg-black/28 px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-white backdrop-blur-md">
+                  Fazenda chique, mesa afetiva
+                </div>
+              </div>
+            </div>
+          </AnimatedSection>
+
+          <AnimatedSection delay={0.06} className="section-stack">
+            <p className="section-copy">
+              Na Da Roça, o ambiente acolhedor, a apresentação caprichada e a
+              sensação de comida feita para reunir transformam o almoço em uma
+              experiência quente, elegante e genuinamente brasileira.
             </p>
-          </div>
-          <div className="grid gap-4 sm:grid-cols-2">
-            <div className="glass-card p-5">
-              <p className="text-sm uppercase tracking-[0.22em] text-secondary">
-                Essência
-              </p>
-              <p className="mt-3 text-lg font-medium text-foreground">
-                Sabor caseiro com toque gourmet rústico-chique.
-              </p>
+
+            <div className="grid gap-4 sm:grid-cols-2">
+              <div className="note-card">
+                <p className="text-xs uppercase tracking-[0.26em] text-secondary">
+                  Essência
+                </p>
+                <p className="mt-3 text-lg leading-8 text-foreground">
+                  Sabor caseiro com toque gourmet, sem perder a alma da roça.
+                </p>
+              </div>
+              <div className="note-card">
+                <p className="text-xs uppercase tracking-[0.26em] text-secondary">
+                  Experiência
+                </p>
+                <p className="mt-3 text-lg leading-8 text-foreground">
+                  Um lugar para famílias, grupos e encontros que merecem mesa
+                  bonita e boa comida.
+                </p>
+              </div>
             </div>
-            <div className="glass-card p-5">
-              <p className="text-sm uppercase tracking-[0.22em] text-secondary">
-                Experiência
-              </p>
-              <p className="mt-3 text-lg font-medium text-foreground">
-                Aconchego de fazenda para famílias, amigos e celebrações.
-              </p>
-            </div>
-          </div>
-        </AnimatedSection>
+          </AnimatedSection>
+        </div>
       </div>
     </section>
   );
 }
 
-function MenuHighlightsSection() {
+function DishesSection() {
   return (
-    <section className="section-padding">
-      <div className="section-shell section-card">
-        <AnimatedSection className="flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-end">
-          <div className="max-w-2xl">
-            <span className="eyebrow">Destaques do cardápio</span>
-            <h2 className="section-title mt-6 max-w-[11ch]">
-              Pratos que abrem o apetite antes mesmo da primeira garfada.
-            </h2>
-          </div>
+    <section id="cardapio" className="section">
+      <div className="section-shell">
+        <AnimatedSection className="section-stack">
+          <span className="eyebrow">Pratos da casa</span>
+          <h2 className="section-title">
+            A cozinha da casa aparece em pratos fartos, bonitos e cheios de
+            desejo.
+          </h2>
+          <p className="section-copy">
+            Os pratos agora entram como uma seção de verdade: texto enxuto,
+            narrativa clara e um carrossel para navegar sem aquela sensação de
+            imagens jogadas.
+          </p>
           <a
             href={restaurant.menuUrl}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-2 rounded-full border border-border bg-white/70 px-5 py-3 text-sm font-semibold transition hover:bg-white"
+            className="inline-flex w-fit items-center gap-2 rounded-full border border-border bg-white/78 px-5 py-3 text-sm font-semibold text-foreground transition hover:bg-white"
           >
             Ver Cardápio Completo
             <ArrowUpRight className="h-4 w-4" />
           </a>
         </AnimatedSection>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
-          {menuItems.map((item, index) => (
-            <AnimatedSection key={item.name} delay={index * 0.06}>
-              <article className="glass-card group h-full overflow-hidden">
-                <div className="relative aspect-[4/5] overflow-hidden">
-                  <Image
-                    src={item.image}
-                    alt={item.name}
-                    fill
-                    className="object-cover transition duration-700 group-hover:scale-105"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="font-serif text-[1.9rem] leading-tight text-foreground">
-                    {item.name}
+        <div className="section-surface mt-8">
+          <div className="grid gap-8 lg:grid-cols-[minmax(0,0.38fr)_minmax(0,0.62fr)] lg:gap-10">
+            <AnimatedSection className="grid gap-5">
+              {dishStories.map((item) => (
+                <article key={item.title} className="border-t border-border pt-5 first:border-t-0 first:pt-0">
+                  <div className="inline-flex rounded-full bg-primary/10 p-3 text-primary">
+                    <CookingPot className="h-5 w-5" />
+                  </div>
+                  <h3 className="mt-4 font-serif text-[1.9rem] leading-[1.02] tracking-[-0.03em] text-foreground">
+                    {item.title}
                   </h3>
-                  <p className="mt-3 text-sm leading-7 text-muted">
+                  <p className="mt-3 text-[0.98rem] leading-7 text-muted">
                     {item.description}
                   </p>
-                  <p className="mt-5 text-sm font-semibold uppercase tracking-[0.18em] text-primary">
-                    {item.price}
-                  </p>
-                </div>
-              </article>
+                </article>
+              ))}
             </AnimatedSection>
-          ))}
+
+            <AnimatedSection delay={0.08}>
+              <PlateCarousel images={galleryImages} />
+            </AnimatedSection>
+          </div>
         </div>
       </div>
     </section>
@@ -412,74 +430,58 @@ function MenuHighlightsSection() {
 
 function ExperienceSection() {
   return (
-    <section className="section-padding">
-      <div className="section-shell section-card grid items-start gap-8 lg:grid-cols-[minmax(0,0.94fr)_minmax(0,1.06fr)] lg:gap-12">
-        <AnimatedSection>
-          <div className="glass-card overflow-hidden p-3">
-            <div className="relative min-h-[360px] overflow-hidden rounded-[1.5rem] lg:min-h-[620px]">
-              <Image
-                src={restaurant.experienceImage}
-                alt="Detalhe de prato servido na Da Roça Gastronomia"
-                fill
-                className="object-cover"
-              />
-            </div>
-          </div>
-        </AnimatedSection>
-
-        <AnimatedSection delay={0.08} className="grid h-full content-between gap-8">
-          <div className="content-stack">
-            <span className="eyebrow">Experiência Da Roça</span>
-            <h2 className="section-title max-w-[12ch]">
-              Um lugar para comer bem, reunir pessoas queridas e criar
-              lembranças.
-            </h2>
-          </div>
-          <div className="grid gap-4 sm:grid-cols-2">
-            {experienceItems.map((item) => {
-              const Icon = item.icon;
-
-              return (
-                <div key={item.title} className="glass-card p-6">
-                  <div className="inline-flex rounded-2xl bg-primary/10 p-3 text-primary">
-                    <Icon className="h-5 w-5" />
-                  </div>
-                  <h3 className="mt-5 font-serif text-[1.9rem] leading-tight">
-                    {item.title}
-                  </h3>
-                  <p className="mt-3 text-sm leading-7 text-muted">
-                    {item.text}
-                  </p>
-                </div>
-              );
-            })}
-          </div>
-        </AnimatedSection>
-      </div>
-    </section>
-  );
-}
-
-function GallerySection() {
-  return (
-    <section className="section-padding">
-      <div className="section-shell section-card">
-        <AnimatedSection className="flex flex-col items-start gap-6 lg:flex-row lg:items-end lg:justify-between">
-          <div className="max-w-2xl">
-            <span className="eyebrow">Galeria de pratos</span>
-            <h2 className="section-title mt-6 max-w-[12ch]">
-              Uma seleção de pratos que traduzem a fartura e o carinho da casa.
-            </h2>
-          </div>
-          <p className="max-w-md text-sm leading-7 text-muted">
-            Sabores da roça, apresentação caprichada e aquele clima de almoço
-            especial para compartilhar em volta da mesa.
+    <section id="experiencia" className="section">
+      <div className="section-shell">
+        <AnimatedSection className="section-stack mb-8 lg:mb-10">
+          <span className="eyebrow">Experiência Da Roça</span>
+          <h2 className="section-title">
+            Um almoço pensado para reunir, acolher e criar lembranças.
+          </h2>
+          <p className="section-copy">
+            O valor da experiência não está só no prato. Está no ambiente
+            charmoso, no cuidado com a mesa, no clima de fazenda elegante e na
+            sensação de que a casa foi feita para receber bem.
           </p>
         </AnimatedSection>
 
-        <AnimatedSection delay={0.08} className="mt-12">
-          <PlateCarousel images={galleryImages} />
-        </AnimatedSection>
+        <div className="grid gap-10 lg:grid-cols-[minmax(0,0.96fr)_minmax(0,1.04fr)] lg:items-center lg:gap-14">
+          <AnimatedSection className="section-stack">
+
+            <div className="grid gap-4 sm:grid-cols-2">
+              {experiencePoints.map((item) => {
+                const Icon = item.icon;
+
+                return (
+                  <article key={item.title} className="detail-card">
+                    <div className="inline-flex rounded-full bg-primary/10 p-3 text-primary">
+                      <Icon className="h-5 w-5" />
+                    </div>
+                    <h3 className="mt-4 font-serif text-[1.55rem] leading-tight text-foreground">
+                      {item.title}
+                    </h3>
+                    <p className="mt-3 text-[0.96rem] leading-7 text-muted">
+                      {item.text}
+                    </p>
+                  </article>
+                );
+              })}
+            </div>
+          </AnimatedSection>
+
+          <AnimatedSection delay={0.06}>
+            <div className="media-frame">
+              <div className="media-image media-image--tall">
+                <Image
+                  src={restaurant.atmosphereImage}
+                  alt="Detalhe do ambiente da Da Roça Gastronomia"
+                  fill
+                  sizes="(max-width: 1023px) calc(100vw - 40px), 52vw"
+                  className="object-cover"
+                />
+              </div>
+            </div>
+          </AnimatedSection>
+        </div>
       </div>
     </section>
   );
@@ -487,224 +489,185 @@ function GallerySection() {
 
 function KidsSection() {
   return (
-    <section className="section-padding">
-      <div className="section-shell section-card grid items-start gap-8 lg:grid-cols-[minmax(0,0.88fr)_minmax(0,1.12fr)] lg:gap-12">
-        <AnimatedSection>
-          <span className="eyebrow">Espaço kids</span>
-          <h2 className="section-title mt-6 max-w-[12ch]">
-            Um cantinho especial para as crianças aproveitarem enquanto a
-            família vive a experiência Da Roça.
-          </h2>
-          <p className="section-copy mt-8 max-w-[56ch]">
-            Para quem quer almoçar com calma e curtir o ambiente, o espaço kids
-            traz ainda mais conforto para famílias com crianças.
-          </p>
-          <a
-            href="https://www.instagram.com/reel/DWJij3IBF5U/"
-            target="_blank"
-            rel="noreferrer"
-            className="mt-8 inline-flex items-center gap-2 rounded-full border border-border bg-white/70 px-5 py-3 text-sm font-semibold transition hover:bg-white"
-          >
-            <RiInstagramFill className="h-4 w-4 text-[#d94877]" />
-            Ver no Instagram
-            <ArrowUpRight className="h-4 w-4" />
-          </a>
-        </AnimatedSection>
+    <section id="kids" className="section">
+      <div className="section-shell">
+        <div className="section-surface">
+          <AnimatedSection className="section-stack mb-8 lg:mb-10">
+            <span className="eyebrow">Espaço kids</span>
+            <h2 className="section-title">
+              Um cantinho pensado para as crianças aproveitarem enquanto a
+              família relaxa de verdade.
+            </h2>
+            <p className="section-copy">
+              O espaço kids reforça uma das maiores qualidades da casa:
+              receber famílias com conforto. Assim o almoço fica gostoso para
+              quem quer sentar, conversar e curtir o ambiente com calma.
+            </p>
+          </AnimatedSection>
 
-        <AnimatedSection delay={0.08}>
-          <div className="glass-card p-3">
-            <div className="overflow-hidden rounded-[1.6rem] bg-white p-3">
-              <blockquote
-                className="instagram-media !m-0 !w-full !max-w-none !min-w-0"
-                data-instgrm-permalink="https://www.instagram.com/reel/DWJij3IBF5U/?utm_source=ig_embed&amp;utm_campaign=loading"
-                data-instgrm-version="14"
-              >
-                <div style={{ padding: "16px" }}>
+          <div className="grid gap-8 lg:grid-cols-[minmax(0,0.44fr)_minmax(0,0.56fr)] lg:items-stretch lg:gap-12">
+            <AnimatedSection className="flex h-full flex-col gap-5">
+              <div className="rounded-[1.6rem] border border-border bg-white/72 p-5">
+                <p className="text-sm leading-7 text-muted">
+                  Se a proposta é comer bem e permanecer mais tempo à mesa, esse
+                  pedaço da experiência faz diferença de verdade.
+                </p>
+              </div>
+
+              <div className="rounded-[1.6rem] border border-border bg-white/64 p-5 shadow-[0_16px_34px_rgba(64,38,17,0.04)]">
+                <p className="text-xs font-semibold uppercase tracking-[0.24em] text-secondary">
+                  Por que funciona
+                </p>
+                <div className="mt-4 grid gap-3">
+                  <div className="flex items-start gap-3">
+                    <span className="mt-2 h-2.5 w-2.5 rounded-full bg-primary/70" />
+                    <p className="text-sm leading-7 text-muted">
+                      As crianças têm um espaço próprio enquanto a mesa segue
+                      tranquila para adultos, famílias e grupos.
+                    </p>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="mt-2 h-2.5 w-2.5 rounded-full bg-secondary/80" />
+                    <p className="text-sm leading-7 text-muted">
+                      A experiência fica mais leve, mais confortável e mais
+                      compatível com almoços longos de domingo.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-auto pt-2">
+                <a
+                  href="https://www.instagram.com/reel/DWJij3IBF5U/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex w-fit items-center gap-2 rounded-full border border-border bg-white px-5 py-3 text-sm font-semibold text-foreground transition hover:bg-[#fbf4ea]"
+                >
+                  <RiInstagramFill className="h-4 w-4 text-[#d94877]" />
+                  Ver vídeo do espaço kids
+                  <ArrowUpRight className="h-4 w-4" />
+                </a>
+              </div>
+            </AnimatedSection>
+
+            <AnimatedSection delay={0.08}>
+              <div className="embed-frame">
+                <blockquote
+                  className="instagram-media !m-0 !w-full !max-w-none !min-w-0"
+                  data-instgrm-permalink="https://www.instagram.com/reel/DWJij3IBF5U/?utm_source=ig_embed&amp;utm_campaign=loading"
+                  data-instgrm-version="14"
+                >
                   <a
                     href="https://www.instagram.com/reel/DWJij3IBF5U/?utm_source=ig_embed&amp;utm_campaign=loading"
                     target="_blank"
                     rel="noreferrer"
-                    style={{
-                      background: "#FFFFFF",
-                      lineHeight: 0,
-                      padding: "0 0",
-                      textAlign: "center",
-                      textDecoration: "none",
-                      width: "100%",
-                    }}
+                    className="block px-6 py-10 text-center text-sm font-medium text-muted"
                   >
-                    Ver esse vídeo no Instagram
+                    Ver vídeo do espaço kids no Instagram
                   </a>
-                </div>
-              </blockquote>
-            </div>
+                </blockquote>
+              </div>
+            </AnimatedSection>
           </div>
-        </AnimatedSection>
+        </div>
       </div>
-      <Script async src="https://www.instagram.com/embed.js" strategy="lazyOnload" />
+
+      <Script
+        async
+        src="https://www.instagram.com/embed.js"
+        strategy="lazyOnload"
+      />
     </section>
   );
 }
 
-function HoursSection() {
+function VisitSection() {
   return (
-    <section className="section-padding">
-      <div className="section-shell section-card">
-        <AnimatedSection className="glass-card overflow-hidden">
-          <div className="grid items-start gap-8 p-8 sm:p-10 lg:grid-cols-[minmax(0,0.82fr)_minmax(0,1.18fr)] lg:p-12">
-            <div className="content-stack">
-              <span className="eyebrow">Horários</span>
-              <h2 className="section-title max-w-[10ch]">
-                Programe seu almoço e venha sem pressa.
-              </h2>
-              <p className="section-copy max-w-[25rem]">
-                A casa abre para os dias mais especiais da semana, com serviço
-                pensado para tornar o almoço ainda mais prazeroso.
-              </p>
-            </div>
-            <div className="space-y-4">
-              {hours.map(([day, value]) => (
-                <div
-                  key={day}
-                  className="flex flex-col gap-3 rounded-[1.6rem] border border-border bg-white/65 p-6 sm:flex-row sm:items-center sm:justify-between"
+    <section id="visita" className="section">
+      <div className="section-shell">
+        <AnimatedSection className="section-stack">
+          <span className="eyebrow">Planeje sua visita</span>
+          <h2 className="section-title">
+            Horários, localização e tudo o que você precisa para chegar bem.
+          </h2>
+          <p className="section-copy">
+            A visita precisa ser simples de entender: quando a casa abre, onde
+            ela está e como falar com a equipe para grupos, reservas e eventos.
+          </p>
+        </AnimatedSection>
+
+        <div className="section-surface mt-8">
+          <div className="grid gap-8 lg:grid-cols-[minmax(0,0.42fr)_minmax(0,0.58fr)] lg:gap-10">
+            <AnimatedSection className="grid gap-5">
+              {visitingInfo.map((item) => {
+                const Icon = item.icon;
+
+                return (
+                  <article key={item.title} className="detail-row">
+                    <div className="detail-row__icon">
+                      <Icon className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <h3 className="font-serif text-[1.55rem] leading-tight text-foreground">
+                        {item.title}
+                      </h3>
+                      <div className="mt-3 space-y-1.5 text-[0.98rem] leading-7 text-muted">
+                        {item.lines.map((line) => (
+                          <p key={line}>{line}</p>
+                        ))}
+                      </div>
+                    </div>
+                  </article>
+                );
+              })}
+
+              <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                <a
+                  href={restaurant.mapsUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="fancy-button fancy-button--olive"
                 >
-                  <div className="flex items-center gap-3">
-                    <Clock3 className="h-5 w-5 text-primary" />
-                    <span className="text-lg font-medium text-foreground">
-                      {day}
-                    </span>
-                  </div>
-                  <span className="text-sm font-semibold uppercase tracking-[0.16em] text-secondary">
-                    {value}
+                  <span className="fancy-button__content">
+                    <RiMapPin2Fill className="h-4 w-4 text-white" />
+                    <span className="text-white">Abrir Rotas</span>
                   </span>
-                </div>
-              ))}
-              <div className="grid gap-4 rounded-[1.8rem] border border-border bg-[linear-gradient(135deg,rgba(143,79,45,0.07),rgba(68,84,61,0.08))] p-6 sm:grid-cols-[1fr_auto] sm:items-center">
-                <div>
-                  <p className="text-sm uppercase tracking-[0.2em] text-secondary">
-                    Planeje sua visita
-                  </p>
-                  <p className="mt-3 text-base leading-7 text-muted">
-                    Cardápio, reservas para grupos acima de 8 pessoas e eventos
-                    são atendidos diretamente pelo WhatsApp.
-                  </p>
-                </div>
-                <div className="flex flex-col gap-3 sm:items-end">
-                  <WhatsAppButton
-                    href={whatsappLink(
-                      "Olá, gostaria de ver o cardápio da Da Roça.",
-                    )}
-                    className="w-full sm:w-auto"
-                  >
-                    Ver Cardápio
-                  </WhatsAppButton>
-                  <a
-                    href="#reservas"
-                    className="inline-flex items-center justify-center gap-2 rounded-full border border-border bg-white/70 px-5 py-3 text-sm font-semibold transition hover:bg-white"
-                  >
-                    Reservas & Eventos
-                    <ArrowUpRight className="h-4 w-4" />
-                  </a>
+                </a>
+                <WhatsAppButton
+                  href={whatsappLink(
+                    "Olá, gostaria de informações sobre localização, reservas e eventos na Da Roça Gastronomia.",
+                  )}
+                >
+                  Falar com a equipe
+                </WhatsAppButton>
+              </div>
+            </AnimatedSection>
+
+            <AnimatedSection delay={0.08} className="grid gap-4">
+              <div className="media-frame">
+                <div className="media-image min-h-[320px] sm:min-h-[380px]">
+                  <Image
+                    src={restaurant.locationImage}
+                    alt="Ambiente da Da Roça Gastronomia em Jundiaí"
+                    fill
+                    sizes="(max-width: 1023px) calc(100vw - 40px), 58vw"
+                    className="object-cover"
+                  />
                 </div>
               </div>
-            </div>
-          </div>
-        </AnimatedSection>
-      </div>
-    </section>
-  );
-}
 
-function LocationSection() {
-  return (
-    <section id="localizacao" className="section-padding">
-      <div className="section-shell section-card grid items-start gap-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-12">
-        <AnimatedSection className="space-y-6">
-          <div className="glass-card p-8 sm:p-10">
-            <span className="eyebrow">Localização</span>
-            <h2 className="section-title mt-6 max-w-[12ch]">
-              Jundiaí, natureza ao redor e um almoço que vale o caminho.
-            </h2>
-            <p className="section-copy mt-6 max-w-[56ch]">{restaurant.address}</p>
-            <p className="mt-4 max-w-[56ch] text-sm leading-7 text-muted">
-              Um destino acolhedor para reunir a família, celebrar datas
-              especiais e viver a experiência Da Roça com calma.
-            </p>
-            <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-              <a
-                href={restaurant.mapsUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-secondary px-6 py-3.5 text-sm font-semibold text-white transition hover:brightness-110"
-              >
-                <MapPinned className="h-4 w-4" />
-                Como Chegar
-              </a>
-              <WhatsAppButton
-                href={whatsappLink(
-                  "Olá, gostaria de informações sobre localização e acesso.",
-                )}
-                variant="ghost"
-              >
-                Tirar Dúvidas
-              </WhatsAppButton>
-            </div>
+              <div className="embed-frame p-2">
+                <iframe
+                  title="Mapa da Da Roça Gastronomia"
+                  src="https://www.google.com/maps?q=R.%20Ignez%20Thomasi%20Bardi,%2097%20-%20Caxambu,%20Jundia%C3%AD%20-%20SP&z=15&output=embed"
+                  className="h-[320px] w-full rounded-[1.35rem] border-0"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+              </div>
+            </AnimatedSection>
           </div>
-
-          <div className="overflow-hidden rounded-[2rem] border border-border bg-white/70 p-2 soft-shadow">
-            <iframe
-              title="Mapa da Da Roça Gastronomia"
-              src="https://www.google.com/maps?q=R.%20Ignez%20Thomasi%20Bardi,%2097%20-%20Caxambu,%20Jundia%C3%AD%20-%20SP&z=15&output=embed"
-              className="h-[320px] w-full rounded-[1.5rem] border-0"
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
-          </div>
-          <div className="flex justify-start">
-            <a
-              href={restaurant.mapsUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-full border border-border bg-white px-5 py-3 text-sm font-semibold transition hover:bg-[#f8f1e8]"
-            >
-              <MapPinned className="h-4 w-4" />
-              Abrir Rotas no Google Maps
-            </a>
-          </div>
-        </AnimatedSection>
-
-        <AnimatedSection delay={0.08} className="grid gap-6">
-          <div className="glass-card p-3">
-            <div className="relative aspect-[4/5] overflow-hidden rounded-[1.6rem]">
-              <Image
-                src={restaurant.locationImage}
-                alt="Ambiente da Da Roça Gastronomia em Jundiaí"
-                fill
-                className="object-cover"
-              />
-            </div>
-          </div>
-          <div className="grid gap-4 sm:grid-cols-2">
-            <div className="glass-card p-6">
-              <p className="text-sm uppercase tracking-[0.22em] text-secondary">
-                Fácil de encontrar
-              </p>
-              <p className="mt-3 text-base leading-7 text-muted">
-                Localização prática em Jundiaí para um almoço especial no fim de
-                semana e feriados.
-              </p>
-            </div>
-            <div className="glass-card p-6">
-              <p className="text-sm uppercase tracking-[0.22em] text-secondary">
-                Ideal para encontros
-              </p>
-              <p className="mt-3 text-base leading-7 text-muted">
-                Um cenário charmoso para reunir pessoas queridas em torno da
-                mesa.
-              </p>
-            </div>
-          </div>
-        </AnimatedSection>
+        </div>
       </div>
     </section>
   );
@@ -712,65 +675,100 @@ function LocationSection() {
 
 function ReservationsSection() {
   return (
-    <section id="reservas" className="section-padding">
-      <div className="section-shell section-card">
-        <AnimatedSection className="glass-card overflow-hidden bg-[linear-gradient(135deg,rgba(143,79,45,0.08),rgba(68,84,61,0.08))] p-8 sm:p-10 lg:p-14">
-          <div className="grid items-start gap-8 lg:grid-cols-[minmax(0,0.88fr)_minmax(0,1.12fr)] lg:gap-12">
-            <div className="content-stack">
+    <section id="reservas" className="section">
+      <div className="section-shell">
+        <div className="rounded-[2.15rem] border border-[rgba(107,79,53,0.18)] bg-[linear-gradient(135deg,rgba(143,79,45,0.16),rgba(68,84,61,0.08),rgba(255,250,244,0.72))] p-6 shadow-[0_24px_70px_rgba(64,38,17,0.08)] sm:p-8 lg:p-10">
+          <div className="grid gap-10 lg:grid-cols-[minmax(0,0.58fr)_minmax(0,0.42fr)] lg:items-start lg:gap-12">
+            <AnimatedSection className="section-stack">
               <span className="eyebrow">Reservas & eventos</span>
-              <h2 className="section-title max-w-[11ch]">
-                Para grupos, comemorações e encontros que merecem uma mesa
+              <h2 className="section-title lg:text-[clamp(3rem,5vw,4.8rem)]">
+                Para grupos, comemorações e encontros que pedem uma mesa
                 especial.
               </h2>
-              <p className="section-copy max-w-[56ch]">
-                Reservas são feitas via WhatsApp para grupos acima de 8 pessoas.
-                Se a ideia for celebrar com mais calma, a Da Roça também oferece
-                o espaço para festas, confraternizações e eventos sob medida.
+              <p className="section-copy max-w-[60ch]">
+                Reservas são feitas pelo WhatsApp para grupos acima de 8 pessoas.
+                A casa também recebe eventos, confraternizações e locação do
+                espaço com atendimento alinhado à experiência da Da Roça.
               </p>
-            </div>
-            <div className="grid gap-4">
-              <div className="rounded-[1.8rem] border border-border bg-white/70 p-6">
-                <div className="flex items-center gap-3">
-                  <CookingPot className="h-5 w-5 text-primary" />
-                  <h3 className="font-serif text-2xl">Reservas para grupos</h3>
-                </div>
-                <p className="mt-3 text-sm leading-7 text-muted">
-                  Ideal para aniversários, encontros em família e grupos acima
-                  de 8 pessoas.
+
+              <div className="rounded-[1.6rem] border border-border bg-white/68 p-5 shadow-[0_16px_34px_rgba(64,38,17,0.05)]">
+                <p className="text-xs font-semibold uppercase tracking-[0.24em] text-secondary">
+                  Atendimento da casa
+                </p>
+                <p className="mt-3 text-[0.98rem] leading-7 text-muted">
+                  Ideal para aniversários, almoços em família, confraternizações
+                  e encontros que pedem uma experiência acolhedora do começo ao
+                  fim.
                 </p>
               </div>
-              <div className="rounded-[1.8rem] border border-border bg-white/70 p-6">
-                <div className="flex items-center gap-3">
-                  <PartyPopper className="h-5 w-5 text-primary" />
-                  <h3 className="font-serif text-2xl">Eventos especiais</h3>
-                </div>
-                <p className="mt-3 text-sm leading-7 text-muted">
-                  Converse com a equipe para festas, confraternizações e locação
-                  do espaço com o clima acolhedor da casa.
-                </p>
+            </AnimatedSection>
+
+            <AnimatedSection delay={0.08} className="grid gap-4 lg:pt-10">
+              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
+                <article className="detail-card">
+                  <div className="inline-flex rounded-full bg-primary/10 p-3 text-primary">
+                    <Users className="h-5 w-5" />
+                  </div>
+                  <h3 className="mt-4 font-serif text-[1.55rem] leading-tight text-foreground">
+                    Reservas para grupos
+                  </h3>
+                  <p className="mt-3 text-[0.96rem] leading-7 text-muted">
+                    Perfeito para aniversários, almoços em família e encontros
+                    acima de 8 pessoas.
+                  </p>
+                </article>
+
+                <article className="detail-card">
+                  <div className="inline-flex rounded-full bg-primary/10 p-3 text-primary">
+                    <PartyPopper className="h-5 w-5" />
+                  </div>
+                  <h3 className="mt-4 font-serif text-[1.55rem] leading-tight text-foreground">
+                    Eventos especiais
+                  </h3>
+                  <p className="mt-3 text-[0.96rem] leading-7 text-muted">
+                    Solicite informações para confraternizações, festas e uso do
+                    espaço com clima acolhedor.
+                  </p>
+                </article>
               </div>
-              <div className="mt-2 flex flex-col gap-4 sm:flex-row sm:items-center">
-                <WhatsAppButton
+
+              <div className="grid gap-3 pt-1 sm:grid-cols-2">
+                <a
                   href={whatsappLink(
                     "Olá, quero fazer uma reserva para um grupo acima de 8 pessoas.",
                   )}
-                  className="self-start px-5 py-3 sm:w-auto"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="group relative inline-flex min-h-[3.9rem] w-full items-center justify-center overflow-hidden rounded-full border border-white/18 bg-[linear-gradient(135deg,#bc733e_0%,#9d5a31_46%,#7f4524_100%)] px-6 py-4 text-sm font-semibold text-white shadow-[0_18px_38px_rgba(73,43,21,0.22)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_22px_44px_rgba(73,43,21,0.28)]"
                 >
-                  Reservar pelo WhatsApp
-                </WhatsAppButton>
-                <WhatsAppButton
+                  <span className="pointer-events-none absolute inset-0 overflow-hidden rounded-full">
+                    <span className="absolute -left-1/3 top-0 h-full w-1/3 -skew-x-12 bg-gradient-to-r from-transparent via-white/35 to-transparent transition duration-700 group-hover:left-[120%]" />
+                  </span>
+                  <span className="relative z-10 inline-flex items-center justify-center gap-3">
+                    <RiWhatsappFill className="h-4 w-4 text-white" />
+                    <span className="text-white">Fazer Reserva</span>
+                  </span>
+                </a>
+                <a
                   href={whatsappLink(
                     "Olá, gostaria de informações sobre eventos na Da Roça Gastronomia.",
                   )}
-                  variant="ghost"
-                  className="self-start px-5 py-3 sm:w-auto"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="group relative inline-flex min-h-[3.9rem] w-full items-center justify-center overflow-hidden rounded-full border border-[rgba(107,79,53,0.14)] bg-[linear-gradient(180deg,rgba(255,255,255,0.96),rgba(249,242,232,0.94))] px-6 py-4 text-sm font-semibold text-foreground shadow-[0_14px_28px_rgba(73,43,21,0.08)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_34px_rgba(73,43,21,0.12)]"
                 >
-                  Solicitar Evento
-                </WhatsAppButton>
+                  <span className="pointer-events-none absolute inset-0 overflow-hidden rounded-full">
+                    <span className="absolute -left-1/3 top-0 h-full w-1/3 -skew-x-12 bg-gradient-to-r from-transparent via-white/55 to-transparent transition duration-700 group-hover:left-[120%]" />
+                  </span>
+                  <span className="relative z-10 inline-flex items-center justify-center gap-3">
+                    <RiWhatsappFill className="h-4 w-4 text-foreground" />
+                    <span className="text-foreground">Solicitar Evento</span>
+                  </span>
+                </a>
               </div>
-            </div>
+            </AnimatedSection>
           </div>
-        </AnimatedSection>
+        </div>
       </div>
     </section>
   );
@@ -778,32 +776,35 @@ function ReservationsSection() {
 
 function Footer() {
   return (
-    <footer className="border-t border-border/80 bg-[#2a1f18] py-12 text-white">
-      <div className="section-shell flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
+    <footer className="mt-6 border-t border-white/8 bg-[#271c16] py-10 text-white">
+      <div className="section-shell grid gap-8 lg:grid-cols-[auto_1fr_auto] lg:items-center">
         <div className="flex items-center gap-4">
           <div className="relative h-14 w-14 overflow-hidden rounded-full border border-white/15">
             <Image
               src={restaurant.logoUrl}
               alt="Logo da Da Roça Gastronomia"
               fill
+              sizes="56px"
               className="object-cover"
             />
           </div>
           <div>
-            <p className="font-serif text-2xl">{restaurant.name}</p>
-            <p className="text-sm text-white/68">{restaurant.slogan}</p>
+            <p className="font-serif text-2xl">Da Roça Gastronomia</p>
+            <p className="text-sm text-white/62">{restaurant.subtitle}</p>
           </div>
         </div>
-        <div className="space-y-2 text-sm text-white/76">
+
+        <div className="text-sm leading-7 text-white/72">
           <p>{restaurant.address}</p>
           <p>WhatsApp para cardápio, reservas acima de 8 pessoas e eventos.</p>
         </div>
-        <div className="flex flex-wrap gap-4 text-sm">
+
+        <div className="flex flex-wrap gap-3 text-sm">
           <a
             href={restaurant.instagram}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 transition hover:bg-white/8"
+            className="inline-flex items-center gap-2 rounded-full border border-white/12 px-4 py-2 transition hover:bg-white/8"
           >
             <RiInstagramFill className="h-4 w-4 text-[#ff72a6]" />
             Instagram
@@ -812,9 +813,9 @@ function Footer() {
             href={restaurant.facebook}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 transition hover:bg-white/8"
+            className="inline-flex items-center gap-2 rounded-full border border-white/12 px-4 py-2 transition hover:bg-white/8"
           >
-            <RiFacebookFill className="h-4 w-4 text-[#7db0ff]" />
+            <RiFacebookFill className="h-4 w-4 text-[#8bb3ff]" />
             Facebook
           </a>
           <a
@@ -823,23 +824,15 @@ function Footer() {
             )}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 transition hover:bg-white/8"
+            className="inline-flex items-center gap-2 rounded-full border border-white/12 px-4 py-2 transition hover:bg-white/8"
           >
-            <RiWhatsappFill className="h-4 w-4 text-[#65d88a]" />
+            <RiWhatsappFill className="h-4 w-4 text-[#69d78d]" />
             WhatsApp
-          </a>
-          <a
-            href={restaurant.menuUrl}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 transition hover:bg-white/8"
-          >
-            <CookingPot className="h-4 w-4 text-[#e6b66f]" />
-            Cardápio
           </a>
         </div>
       </div>
-      <div className="section-shell mt-8 border-t border-white/10 pt-6 text-xs uppercase tracking-[0.18em] text-white/45">
+
+      <div className="section-shell mt-8 border-t border-white/8 pt-5 text-xs uppercase tracking-[0.18em] text-white/38">
         © 2026 Da Roça Gastronomia Brasil. Todos os direitos reservados.
       </div>
     </footer>
