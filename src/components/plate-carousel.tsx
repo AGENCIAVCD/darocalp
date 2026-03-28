@@ -134,9 +134,9 @@ export function PlateCarousel({ images }: PlateCarouselProps) {
                 </div>
               </button>
 
-              {isExpanded ? (
-                <div className="border-t border-border bg-white/92 px-5 py-5">
-                  <p className="text-sm leading-7 text-muted">{image.alt}</p>
+              <div className="border-t border-border bg-white/92 px-5 py-5">
+                <p className="text-sm leading-7 text-muted">{image.alt}</p>
+                {isExpanded ? (
                   <a
                     href="https://api.whatsapp.com/message/44AOXKCNVNHGL1?autoload=1&app_absent=0"
                     target="_blank"
@@ -145,8 +145,8 @@ export function PlateCarousel({ images }: PlateCarouselProps) {
                   >
                     <span className="text-white">Faça sua reserva</span>
                   </a>
-                </div>
-              ) : null}
+                ) : null}
+              </div>
             </article>
           );
         })}

@@ -569,21 +569,23 @@ function KidsSection() {
             </div>
 
             <AnimatedSection delay={0.08}>
-              <div className="embed-frame">
-                <blockquote
-                  className="instagram-media !m-0 !w-full !max-w-none !min-w-0"
-                  data-instgrm-permalink="https://www.instagram.com/reel/DWJij3IBF5U/?utm_source=ig_embed&amp;utm_campaign=loading"
-                  data-instgrm-version="14"
-                >
-                  <a
-                    href="https://www.instagram.com/reel/DWJij3IBF5U/?utm_source=ig_embed&amp;utm_campaign=loading"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="block px-6 py-10 text-center text-sm font-medium text-muted"
+              <div className="mx-auto w-full max-w-[820px] lg:max-w-[760px]">
+                <div className="embed-frame">
+                  <blockquote
+                    className="instagram-media !m-0 !w-full !max-w-none !min-w-0"
+                    data-instgrm-permalink="https://www.instagram.com/reel/DWJij3IBF5U/?utm_source=ig_embed&amp;utm_campaign=loading"
+                    data-instgrm-version="14"
                   >
-                    Ver vídeo do espaço kids no Instagram
-                  </a>
-                </blockquote>
+                    <a
+                      href="https://www.instagram.com/reel/DWJij3IBF5U/?utm_source=ig_embed&amp;utm_campaign=loading"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="block px-6 py-10 text-center text-sm font-medium text-muted"
+                    >
+                      Ver vídeo do espaço kids no Instagram
+                    </a>
+                  </blockquote>
+                </div>
               </div>
             </AnimatedSection>
           </div>
@@ -699,7 +701,7 @@ function ReservationsSection() {
           <div className="grid gap-8 lg:grid-cols-[minmax(0,0.56fr)_minmax(0,0.44fr)] lg:items-start lg:gap-10">
             <AnimatedSection className="section-stack">
               <span className="eyebrow">Reservas & eventos</span>
-              <h2 className="section-title lg:text-[clamp(2.5rem,4vw,4rem)]">
+              <h2 className="section-title lg:text-[clamp(2.125rem,3.4vw,3.4rem)]">
                 Para grupos, comemorações e encontros que pedem uma mesa
                 especial.
               </h2>
